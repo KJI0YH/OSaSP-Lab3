@@ -17,10 +17,17 @@ int main(int argc, char* argv[]) {
 	FILE *fpsrc, *fpdest;
 	
 	//open files
-	if ((fpsrc = fopen(argv[1], "rb")) == NULL)
-		failure("Can not open srcFileName");
-	if ((fpdest = fopen(argv[2], "w+b")) == NULL)
-		failure("Can not open destFileName");
+	if ((fpsrc = fopen(argv[1], "rb")) == NULL) {
+		char buffer[300];
+		sprintf(buffer, "Can not open %s", argv[1]);
+		failure(buffer);
+	}
+	if ((fpdest = fopen(argv[2], "w+b")) == NULL) {
+		fclose(fpsrc);
+		char buffer[300];
+		sprintf(buffer, "Can not open %s", argv[2]);
+		failure(buffer);
+	}
 		
 
 	//copying a file 
