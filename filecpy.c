@@ -18,7 +18,7 @@ int main(int argc, char* argv[]) {
 	
 	//open files
 	if ((fpsrc = fopen(argv[1], "rb")) == NULL)
-		failure("Can not open srcFileName\n");
+		failure("Can not open srcFileName");
 	if ((fpdest = fopen(argv[2], "w+b")) == NULL)
 		failure("Can not open destFileName");
 		
