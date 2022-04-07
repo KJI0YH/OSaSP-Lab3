@@ -5,7 +5,7 @@
 #include <sys/wait.h>
 #include <sys/time.h>
 
-//get PID PPID and Time
+//get PID, PPID and Time
 void getTime(char* caller){
 	struct timeval tv;
 	
@@ -32,11 +32,11 @@ void main(void){
 	pid_t child1, child2;
 	
 	//parent process
-	if ((child1 = fork())>0 && (child2 = fork())>0) {
+	if ((child1 = fork()) > 0 && (child2 = fork()) > 0) {
 		getTime("Parent");
 		
 		if (system("ps -x") == -1)
-			perror("child (system) process could not be created\n");
+			perror("Can not report a snapshot of the current processes");
 		
 		waitChild(child1);
 		waitChild(child2);

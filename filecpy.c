@@ -9,7 +9,7 @@
 
 int main(int argc, char* argv[]) {
 	if (argc < 3)
-		failure("Invalid arguments\nFormat: filecpy.run [srcFileName] [destFileName]");
+		failure("Invalid arguments\nFormat: ./filecpy.run [srcFileName] [destFileName]");
 		
 	if (strcmp(argv[1], argv[2]) == 0)
 		failure("Files can not have the same name");
@@ -54,5 +54,4 @@ int main(int argc, char* argv[]) {
 		perror("Can not clise destFileName");
 	
 	return 0;
-	
 }
